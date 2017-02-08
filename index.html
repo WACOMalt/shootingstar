@@ -23,7 +23,7 @@
 
 			//Set a base folder for models
 			var modelBaseUrl = 'assets/';
-			// stuff
+			
 			var house;
 			var discoball;
 			var discoballMat;
@@ -111,7 +111,7 @@
 			//My code for initially making the snowflakes (this gets run later)
 			/*
 			function createSnowFlake() {
-				var tex = new THREE.ImageUtils.loadTexture("assets/snowflakes.png");
+				var tex = new THREE.ImageUtils.loadTexture("models/snowflakes.png");
 				tex.offset = new THREE.Vector2( (RandInt(0, 3)/4), (RandInt(0, 3)/4));
 				tex.repeat = new THREE.Vector2( .25, .25);
 				var snowflake = new THREE.Mesh(new THREE.PlaneGeometry(snowflakeSize, snowflakeSize, 1, 1), new THREE.MeshBasicMaterial({ map: tex, transparent: true, side: THREE.DoubleSide}));
@@ -233,7 +233,7 @@
 
 					// Create Milkyway Skybox and add it to the scene.
 					//var skybox = createSkybox('https://upload.wikimedia.org/wikipedia/commons/a/a1/ESO_-_The_Milky_Way_panorama_(by).jpg', true);
-					var skybox = createSkybox('assets/Sky_EchoAdventureA.jpg', true);
+					var skybox = createSkybox('models/Sky_EchoAdventureA.jpg', true);
 					
 					scene.add(skybox);
 
@@ -242,7 +242,7 @@
 				/*
 					var snowControlPanelGroup = new THREE.Group();
 					//-Snow Toggle Button
-					var snowButtonTex = THREE.ImageUtils.loadTexture( "assets/snowtile.jpg" );
+					var snowButtonTex = THREE.ImageUtils.loadTexture( "models/snowtile.jpg" );
 					var snowButton = new THREE.Mesh(new THREE.SphereGeometry(0.1, 40, 5, Math.PI + 0.3, 2*Math.PI), new THREE.MeshBasicMaterial({ color: 0xffffff, map: snowButtonTex }));
 					snowControlPanelGroup.add(snowButton);
 					snowButton.rotation.x = THREE.Math.degToRad(90);
@@ -255,7 +255,7 @@
 						console.log(snowflakesEnabled);
 					});
 
-					//var snowUpbuttonTex = THREE.ImageUtils.loadTexture( "assets/snowtile.jpg" );
+					//var snowUpbuttonTex = THREE.ImageUtils.loadTexture( "models/snowtile.jpg" );
 					var snowUpButton = new THREE.Mesh(new THREE.SphereGeometry(.05, 20, 3, Math.PI + 0.3, 2*Math.PI), new THREE.MeshBasicMaterial({ color: 0x00ff00 }));
 					snowControlPanelGroup.add(snowUpButton);
 					snowUpButton.rotation.x = THREE.Math.degToRad(90);
@@ -266,7 +266,7 @@
 						console.log("adding 100 snowflakes");
 					});
 
-					//var snowDownButtonTex = THREE.ImageUtils.loadTexture( "assets/snowtile.jpg" );
+					//var snowDownButtonTex = THREE.ImageUtils.loadTexture( "models/snowtile.jpg" );
 					var snowDownButton = new THREE.Mesh(new THREE.SphereGeometry(.05, 20, 3, Math.PI + 0.3, 2*Math.PI), new THREE.MeshBasicMaterial({ color: 0xff0000 }));
 					snowControlPanelGroup.add(snowDownButton);
 					snowDownButton.rotation.x = THREE.Math.degToRad(90);
@@ -277,7 +277,7 @@
 						console.log("subtracting 100 snowflakes");
 					});
 
-					var snowControlPanelTex = THREE.ImageUtils.loadTexture( "assets/snowcontrolpanel.png" );
+					var snowControlPanelTex = THREE.ImageUtils.loadTexture( "models/snowcontrolpanel.png" );
 					var snowControlPanel = new THREE.Mesh(new THREE.PlaneGeometry(0.75, 0.75, 1), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, map: snowControlPanelTex, side: THREE.DoubleSide }));
 					snowControlPanelGroup.add(snowControlPanel);
 					snowControlPanel.position.set(0, 0.05, 0);
