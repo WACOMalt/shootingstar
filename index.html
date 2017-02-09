@@ -25,6 +25,7 @@
 			var modelBaseUrl = 'assets/';
 			
 			var house;
+			var curtains;
 			var discoball;
 			var discoballMat;
 			var shinyin;
@@ -69,7 +70,9 @@
 				{ name: 'shooblockout10', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'discoball', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'shinyin', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'shinyout', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+				{ name: 'shinyout', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'curtains', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				
 				
 			];
 
@@ -146,6 +149,19 @@
 						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
 						house = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'curtains') {
+						obj.children[1].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(10, 1, 0);
+						//obj.scale.x = 1.5;
+						//obj.scale.z = 1.5;
+						obj.scale.y = 1.1;
+						curtains = obj;
 						
 						scene.add(obj);
 						//console.log(obj);
