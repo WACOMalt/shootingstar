@@ -26,14 +26,13 @@
 			
 			var house;
 			var curtains;
+			var bar;
 			var discoball;
 			var discoballMat;
 			var shinyin;
 			var shinyout;
 			var shinyoutMat;
 			var meshCollider;
-			var meshCollider2;
-			var shinyCollider;
 			var shinyGroup = new THREE.Group();
 
 			//Create a variable for the user's head joint. It'll be filled later by "promises" and used for the snow system
@@ -72,8 +71,7 @@
 				{ name: 'shinyin', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'shinyout', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'curtains', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				
-				
+				{ name: 'bar', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 			];
 
 			//These two functions are used by my snow to spawn at random locations
@@ -168,13 +166,26 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
+					if (name === 'bar') {
+						obj.children[1].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(10, 1, 0);
+						//obj.scale.x = 1.5;
+						//obj.scale.z = 1.5;
+						obj.scale.y = 1.1;
+						bar = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
 					if (name === 'discoball') {
 						obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(-20, 2, 0);
 						discoball = obj;
 						scene.add(obj);
 						console.log(obj);
-						meshCollider2 = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 						
 						discoballMat = discoball.children[1].material;
 						discoballMat.map.wrapT = THREE.RepeatWrapping;
@@ -191,7 +202,7 @@
 						obj.children[1].userData.altspace = {collider: {enabled: false}};
 						shinyout = obj;
 						shinyGroup.add(shinyout);
-						shinyoutCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 						
 						shinyoutMat = shinyout.children[1].material;
 						shinyoutMat.map.wrapT = THREE.RepeatWrapping;
