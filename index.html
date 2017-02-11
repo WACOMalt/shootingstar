@@ -27,6 +27,7 @@
 			var house;
 			var curtains;
 			var bar;
+			var barstools2;
 			var discoball;
 			var discoballMat;
 			var shinyin;
@@ -174,6 +175,19 @@
 						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
 						bar = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'barstools2') {
+						obj.children[1].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(10, 1, 0);
+						//obj.scale.x = 1.5;
+						//obj.scale.z = 1.5;
+						obj.scale.y = 1.1;
+						barstools2 = obj;
 						
 						scene.add(obj);
 						//console.log(obj);
