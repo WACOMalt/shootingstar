@@ -27,7 +27,7 @@
 			var house;
 			var curtains;
 			var bar;
-			var barstools2;
+			var barstools3;
 			var discoball;
 			var discoballMat;
 			var shinyin;
@@ -73,7 +73,7 @@
 				{ name: 'shinyout', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'curtains', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'bar', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'barstools2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+				{ name: 'barstools3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 			];
 
 			//These two functions are used by my snow to spawn at random locations
@@ -181,13 +181,13 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'barstools2') {
+					if (name === 'barstools3') {
 						obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
-						barstools2 = obj;
+						barstools3 = obj;
 						
 						scene.add(obj);
 						//console.log(obj);
