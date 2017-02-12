@@ -29,7 +29,7 @@
 			var bar2;
 			var barstools3;
 			var stage;
-			var testspiral4;
+			var testspiral5;
 			var audiencefloor;
 			var downstairsfloor;
 			var discoball;
@@ -79,7 +79,7 @@
 				{ name: 'bar2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'barstools3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'stage', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'testspiral4', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'testspiral5', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'downstairsfloor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'audiencefloor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 			];
@@ -215,13 +215,13 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'testspiral4') {
+					if (name === 'testspiral5') {
 						obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
-						testspiral4 = obj;
+						testspiral5 = obj;
 						
 						scene.add(obj);
 						//console.log(obj);
