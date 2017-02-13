@@ -76,8 +76,6 @@
 			[
 				//{ name: 'shooblockout10', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'discoball', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'shinyin', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'shinyout', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'curtains3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'bar2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'barstools3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
@@ -271,27 +269,6 @@
 						discoballMat.map.wrapS = THREE.RepeatWrapping;
 					}
 					
-					if (name === 'shinyin') {
-						obj.children[1].userData.altspace = {collider: {enabled: false}};
-						shinyin = obj;
-						shinyGroup.add(shinyin);
-					}
-					
-					if (name === 'shinyout') {
-						obj.children[1].userData.altspace = {collider: {enabled: false}};
-						shinyout = obj;
-						shinyGroup.add(shinyout);
-						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
-						
-						shinyoutMat = shinyout.children[1].material;
-						shinyoutMat.map.wrapT = THREE.RepeatWrapping;
-						shinyoutMat.map.wrapS = THREE.RepeatWrapping;
-						shinyoutMat.transparent = true;
-						shinyoutMat.opactiy = 0.3;
-					}
-					
-					scene.add(shinyGroup);
-					shinyGroup.position.set(-20,2,5);
                 }
             }
 
@@ -315,9 +292,6 @@
 					//Add skeleton to scene and store Head joint in variable
 					scene.add(skeleton);
 					userHead = skeleton.getJoint('Head');
-
-					//Set the master scale for real now, based on the enclosure pixels per meter
-					//masterScale = enclosure.pixelsPerMeter;
 
 					// Build ultimateloader array
 					var objectUrls = new Array(models.length);
@@ -395,7 +369,13 @@
 				*/
 
 					//Now that everything has been done, Run animation loop.
-					animate();
+				(function animateYet(){
+					if(discoball){	//make sure these exist before animating
+						animate();						//to prevent console errors
+						return;
+					};
+					requestAnimationFrame(animateYet);
+				}());
 
 				}).catch(function (err)
 				{
@@ -411,7 +391,6 @@
 				//This tells JS to rerun this loop once one animation frame has happened. This is responsible for keeping a consistent timing to the animation regardless of framerate
 				requestAnimationFrame(animate);
 				discoball.rotation.y += 0.01;
-				shinyGroup.rotation.y += 0.01;
 
 				//house.scale.x = ((Math.sin(animationInc/250)*2)+3);
 				//house.scale.y = ((Math.sin(animationInc/250)*2)+3);
