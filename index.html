@@ -10,21 +10,6 @@
 </head>
 <body>
 	<script>
-			var house;
-			var curtains;
-			var bar;
-			var barstools;
-			var stage;
-			var COLspiralstaircase;
-			var spiralstaircase;
-			var audiencefloor;
-			var downstairsfloor;
-			var discoballMat;
-			var shinyin;
-			var shinyout;
-			var shinyoutMat;
-			var meshCollider;
-	
 		if (!window.altspace || !window.altspace.inClient) document.write('<h3>Bruh, This is an AltspaceVR app. Why you trying to open it in a browser? Get altspace here: <a href="http://altvr.com"> AltspaceVR </a></h3>');
 
 		var ShooShoosShootingStar = (function() {
@@ -39,7 +24,21 @@
 			//Set a base folder for models
 			var modelBaseUrl = 'assets/';
 			
-
+			var house;
+			var curtains;
+			var bar;
+			var barstools;
+			var stage;
+			var COLspiralstaircase;
+			var spiralstaircase;
+			var audiencefloor;
+			var downstairsfloor;
+			var discoball;
+			var discoballMat;
+			var shinyin;
+			var shinyout;
+			var shinyoutMat;
+			var meshCollider;
 			var shinyGroup = new THREE.Group();
 
 			//Create a variable for the user's head joint. It'll be filled later by "promises" and used for the snow system
@@ -258,7 +257,7 @@
 					if (name === 'discoball') {
 						obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(-20, 2, 0);
-						var discoball = obj;
+						discoball = obj;
 						scene.add(obj);
 						//console.log(obj);
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
