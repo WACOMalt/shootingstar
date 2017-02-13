@@ -317,57 +317,6 @@
 					
 					scene.add(skybox);
 
-
-				//SNOW CONTROL PANEL START
-				/*
-					var snowControlPanelGroup = new THREE.Group();
-					//-Snow Toggle Button
-					var snowButtonTex = THREE.ImageUtils.loadTexture( "models/snowtile.jpg" );
-					var snowButton = new THREE.Mesh(new THREE.SphereGeometry(0.1, 40, 5, Math.PI + 0.3, 2*Math.PI), new THREE.MeshBasicMaterial({ color: 0xffffff, map: snowButtonTex }));
-					snowControlPanelGroup.add(snowButton);
-					snowButton.rotation.x = THREE.Math.degToRad(90);
-					snowButton.scale.y = 0.1;
-					snowButton.position.set(0.1, 0.0, 0);
-					//This is a click event
-					snowButton.addEventListener('cursordown', function(event) {
-						//Toggles the snowFlakesEnabled variable
-						snowflakesEnabled = !snowflakesEnabled;
-						console.log(snowflakesEnabled);
-					});
-
-					//var snowUpbuttonTex = THREE.ImageUtils.loadTexture( "models/snowtile.jpg" );
-					var snowUpButton = new THREE.Mesh(new THREE.SphereGeometry(.05, 20, 3, Math.PI + 0.3, 2*Math.PI), new THREE.MeshBasicMaterial({ color: 0x00ff00 }));
-					snowControlPanelGroup.add(snowUpButton);
-					snowUpButton.rotation.x = THREE.Math.degToRad(90);
-					snowUpButton.scale.y = 0.1;
-					snowUpButton.position.set(-0.1, 0.05, 0);
-					snowUpButton.addEventListener('cursordown', function(event) {
-						if (numSnowflakes < 2000) {numSnowflakes += 50;}
-						console.log("adding 100 snowflakes");
-					});
-
-					//var snowDownButtonTex = THREE.ImageUtils.loadTexture( "models/snowtile.jpg" );
-					var snowDownButton = new THREE.Mesh(new THREE.SphereGeometry(.05, 20, 3, Math.PI + 0.3, 2*Math.PI), new THREE.MeshBasicMaterial({ color: 0xff0000 }));
-					snowControlPanelGroup.add(snowDownButton);
-					snowDownButton.rotation.x = THREE.Math.degToRad(90);
-					snowDownButton.scale.y = 0.1;
-					snowDownButton.position.set(-0.1, -0.05, 0);
-					snowDownButton.addEventListener('cursordown', function(event) {
-						if (numSnowflakes >= 100) {numSnowflakes -= 50;}
-						console.log("subtracting 100 snowflakes");
-					});
-
-					var snowControlPanelTex = THREE.ImageUtils.loadTexture( "models/snowcontrolpanel.png" );
-					var snowControlPanel = new THREE.Mesh(new THREE.PlaneGeometry(0.75, 0.75, 1), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, map: snowControlPanelTex, side: THREE.DoubleSide }));
-					snowControlPanelGroup.add(snowControlPanel);
-					snowControlPanel.position.set(0, 0.05, 0);
-					snowControlPanel.rotation.y = THREE.Math.degToRad(180);
-
-					snowControlPanelGroup.position.set(0, 3, -1);
-					scene.add(snowControlPanelGroup);
-				//SNOW CONTROL PANEL END
-				*/
-
 					//Now that everything has been done, Run animation loop.
 				(function animateYet(){
 					if(discoball){	//make sure these exist before animating
@@ -388,72 +337,16 @@
 
 				//Increment my time counter variable
 				animationInc++;
+				
 				//This tells JS to rerun this loop once one animation frame has happened. This is responsible for keeping a consistent timing to the animation regardless of framerate
 				requestAnimationFrame(animate);
 				discoball.rotation.y += 0.01;
-
-				//house.scale.x = ((Math.sin(animationInc/250)*2)+3);
-				//house.scale.y = ((Math.sin(animationInc/250)*2)+3);
-				//house.scale.z = ((Math.sin(animationInc/250)*2)+3);
-				
 				discoballMat.map.offset.x = (THREE.Math.radToDeg(discoball.rotation.y)/360);
-				shinyoutMat.map.offset.x = (THREE.Math.radToDeg(shinyGroup.rotation.y)/360);
-				//discoballMat.map.offset.y = Math.sin(animateTick/239)*0.1;
 				
 				//render the scene
 				renderer.render(scene);
 			
-			/*
-			//SNOWFLAKE ANIMATION STUFF
-				//animate snowflakes and create or destroy them if the settings have changed
-				//If snowflakes are enabled...
-				if (snowflakesEnabled == true) {
-					//And if you dont have as many snowflakes as you should
-					if (snowflakes.length < numSnowflakes){
-						//create the snowflakes until you have as many as you should.
-						for(var i = 0; i < numSnowflakes; ++i) {
-							snowflakes.push(createSnowFlake());
-						}
-					//If you do have as many snowflakes as you should...
-					} else {
-						//Go through the array of snowflakes and do fancy sin/cosine waves on their position, and drop them by the gravity amount
-						for(var i = 0; i < numSnowflakes; ++i) {
-							snowflakes[i].position.y = snowflakes[i].position.y - snowGravity;
-							snowflakes[i].position.x = (snowflakes[i].position.x) + (Math.sin(((animationInc*snowDriftSpeed) + (i*snowDriftSeparation)))*snowDriftDistanceX);
-							snowflakes[i].position.z = (snowflakes[i].position.z) + (Math.cos(((animationInc*snowDriftSpeed) + (i*snowDriftSeparation)))*snowDriftDistanceZ);
 
-							//If the snowflake is outside of the snowvolume that follows you...  (Bunch of cases here, one for each side of the box volume)
-							if ((snowflakes[i].position.y < ((userHead.position.y-scene.position.y) - flakeBoxHeight)) ||
-							(snowflakes[i].position.x < ((userHead.position.x-scene.position.x) - flakeBoxWidth)) ||
-							(snowflakes[i].position.x > ((userHead.position.x-scene.position.x) + flakeBoxWidth)) ||
-							(snowflakes[i].position.z < ((userHead.position.z-scene.position.z) - flakeBoxDepth)) ||
-							(snowflakes[i].position.z > ((userHead.position.z-scene.position.z) + flakeBoxDepth)))
-								//set the snowflake to a new position inside of the box
-								{
-								snowflakes[i].position.set(((userHead.position.x-scene.position.x) + RandFloat((flakeBoxWidth*-1), flakeBoxWidth)), ((userHead.position.y-scene.position.y) + RandFloat((flakeBoxHeight*-1), flakeBoxHeight)), ((userHead.position.z-scene.position.z) + RandFloat((flakeBoxDepth*-1), flakeBoxDepth)));
-								}
-							//Create a variable for where the snowflakes should point at (your head position, offset for scale and stuff)
-							var flakeAim = new THREE.Vector3((userHead.position.x-scene.position.x), (userHead.position.y-scene.position.y), (userHead.position.z-scene.position.z));
-							//Use lookAt to point them at that position
-							snowflakes[i].lookAt(flakeAim);
-							//rotate them as they fall (lookAt above sets the Z rotation but we overwrite that here)
-							snowflakes[i].rotation.z = (animationInc * snowflakeSpinSpeed) * ((i - (numSnowflakes/2))/(numSnowflakes/2));
-						}
-					}
-				//Otherwise, since you have snowflakes disabled...
-				} else {
-					//check if there are any...
-					if (snowflakes.length > 0) {
-						//and if so, remove them...
-						for(var i = 0; i < snowflakes.length; i++) {
-							scene.remove(snowflakes[i]);
-						}
-						//and clear the snowflakes array.
-						snowflakes = [];
-					}
-				}
-			//END SNOWFLAKE ANIMATION STUFF
-			*/
 			}return { start: start };  //return this WHOLE thing to "start" which we will call once the enclosure opens or something
 		}()); //End of actual app!
 
