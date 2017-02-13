@@ -11,9 +11,9 @@
 <body>
 	<script>
 			var house;
-			var curtains2;
-			var bar2;
-			var barstools3;
+			var curtains;
+			var bar;
+			var barstools;
 			var stage;
 			var COLspiralstaircase;
 			var spiralstaircase;
@@ -78,13 +78,13 @@
 				{ name: 'discoball', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'shinyin', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'shinyout', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'curtains2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'curtains3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'bar2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'barstools3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'stage', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'stage3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'COLspiralstaircase3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'spiralstaircase', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'downstairsfloor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'downstairsfloor4', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'audiencefloor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 			];
 
@@ -167,7 +167,7 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'curtains2') {
+					if (name === 'curtains3') {
 						obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
@@ -180,7 +180,7 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'bar2') {
+					if (name === 'bar') {
 						obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
@@ -193,7 +193,7 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'barstools3') {
+					if (name === 'barstools') {
 						obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
@@ -206,7 +206,7 @@
 						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'stage') {
+					if (name === 'stage3') {
 						obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
@@ -246,7 +246,7 @@
 						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'downstairsfloor') {
+					if (name === 'downstairsfloor4') {
 						obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
