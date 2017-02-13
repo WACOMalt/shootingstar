@@ -1,6 +1,6 @@
 # This file uses feet as units for non-parametric coordinates.
 
-mtllib testspiral7.mtl
+mtllib COLspiralstaircase.mtl
 g default
 v -2.801879 3.256075 0.209995
 v -3.426163 2.993033 0.422242
