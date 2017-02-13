@@ -6,24 +6,10 @@
 <script src="https://cdn.rawgit.com/mrdoob/three.js/r76/build/three.min.js"></script>
 <script src="https://sdk.altvr.com/libs/altspace.js/0.28.1/altspace.min.js"></script>
 <script src="https://cdn.rawgit.com/Ooblik/AltspaceVR-Native-Components-JS/master/js/JSNativeComponents.js"></script>
-<script src="https://cdn.rawgit.com/norybiak/UltimateLoader/v0.1.7/dist/UltimateLoader.min.js"></script>
+<script src="https://cdn.rawgit.com/norybiak/UltimateLoader/v0.2.0/dist/UltimateLoader.min.js"></script>
 </head>
 <body>
 	<script>
-		if (!window.altspace || !window.altspace.inClient) document.write('<h3>Bruh, This is an AltspaceVR app. Why you trying to open it in a browser? Get altspace here: <a href="http://altvr.com"> AltspaceVR </a></h3>');
-
-		var NightmareTimeSpace = (function() {
-			console.log("starting NightmareTime Space app");
-			//Scene and renderer are the main stuff you need for altspace to have stuff to render, and to render it to the game
-			var scene = new THREE.Scene();
-			var renderer = altspace.getThreeJSRenderer();
-
-			//we use this to be able to easily scale our whole scene
-			//var masterScale = 1;
-
-			//Set a base folder for models
-			var modelBaseUrl = 'assets/';
-			
 			var house;
 			var curtains2;
 			var bar2;
@@ -39,6 +25,22 @@
 			var shinyout;
 			var shinyoutMat;
 			var meshCollider;
+	
+		if (!window.altspace || !window.altspace.inClient) document.write('<h3>Bruh, This is an AltspaceVR app. Why you trying to open it in a browser? Get altspace here: <a href="http://altvr.com"> AltspaceVR </a></h3>');
+
+		var ShooShoosShootingStar = (function() {
+			console.log("starting NightmareTime Space app");
+			//Scene and renderer are the main stuff you need for altspace to have stuff to render, and to render it to the game
+			var scene = new THREE.Scene();
+			var renderer = altspace.getThreeJSRenderer();
+
+			//we use this to be able to easily scale our whole scene
+			//var masterScale = 1;
+
+			//Set a base folder for models
+			var modelBaseUrl = 'assets/';
+			
+
 			var shinyGroup = new THREE.Group();
 
 			//Create a variable for the user's head joint. It'll be filled later by "promises" and used for the snow system
@@ -224,8 +226,9 @@
 						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
 						COLspiralstaircase = obj;
+						COLspiralstaircase.material.visible = false;
 						
-						//scene.add(obj);
+						scene.add(obj);
 						//console.log(obj);
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
@@ -492,7 +495,7 @@
 		//Whenever altspace loads the file, request fullspace, then run your actual app
 		altspace.getEnclosure().then(function (enclosure) {
 			enclosure.requestFullspace().then(function () {
-			    NightmareTimeSpace.start();
+			    ShooShoosShootingStar.start();
 			});
 		})
 	</script>
