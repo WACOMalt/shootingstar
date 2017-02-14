@@ -40,6 +40,11 @@
 			var spiralstaircase;
 			var audiencefloor;
 			var downstairsfloor;
+			var baywindows;
+			var downstairswalls;
+			var frontdoor;
+			var frontwindows;
+			var wallsconces;
 			var discoball;
 			var discoballMat;
 			var shinyin;
@@ -87,7 +92,12 @@
 				{ name: 'stage4', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'COLspiralstaircase3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'spiralstaircase2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'downstairsfloor5', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+				{ name: 'downstairsfloor5', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'baywindows', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'downstairswalls', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'frontdoor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'frontwindows', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'wallsconces', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 			];
 
 			//These two functions are used by my snow to spawn at random locations
@@ -159,8 +169,6 @@
 					if (name === 'shooblockout10.obj') {
 						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
-						//obj.scale.x = 1.5;
-						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
 						house = obj;
 						scene.add(obj);
@@ -172,8 +180,6 @@
 						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.children[0].material.side = THREE.DoubleSide;
 						obj.position.set(10, 1, 0);
-						//obj.scale.x = 1.5;
-						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
 						curtains = obj;
 						
@@ -185,8 +191,6 @@
 					if (name === 'bar3') {
 						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
-						//obj.scale.x = 1.5;
-						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
 						bar = obj;
 						
@@ -209,8 +213,6 @@
 					if (name === 'stage4') {
 						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
-						//obj.scale.x = 1.5;
-						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
 						stage = obj;
 						
@@ -222,8 +224,6 @@
 					if (name === 'COLspiralstaircase3') {
 						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
-						//obj.scale.x = 1.5;
-						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
 						COLspiralstaircase = obj;
 						COLspiralstaircase.children[0].material.visible = false;
@@ -236,8 +236,6 @@
 					if (name === 'spiralstaircase2') {
 						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
-						//obj.scale.x = 1.5;
-						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
 						spiralstaircase = obj;
 						
@@ -249,10 +247,63 @@
 					if (name === 'downstairsfloor5') {
 						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
-						//obj.scale.x = 1.5;
-						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
 						downstairsfloor = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'baywindows') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(10, 1, 0);
+						obj.scale.y = 1.1;
+						baywindows = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'downstairswalls') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(10, 1, 0);
+						obj.scale.y = 1.1;
+						downstairswalls = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'frontdoor') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(10, 1, 0);
+						obj.scale.y = 1.1;
+						frontdoor = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'frontwindows') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(10, 1, 0);
+						obj.scale.y = 1.1;
+						frontwindows = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'wallsconces') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(10, 1, 0);
+						obj.scale.y = 1.1;
+						wallsconces = obj;
 						
 						scene.add(obj);
 						//console.log(obj);
