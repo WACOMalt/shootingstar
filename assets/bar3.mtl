@@ -1,7 +1,7 @@
-newmtl audiencefloorSG
+newmtl barSG
 illum 4
 Kd 1.00 1.00 1.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd audienceFloor.jpg
+map_Kd bar3.jpg
 Ni 1.00
