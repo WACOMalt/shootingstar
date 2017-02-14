@@ -4,7 +4,7 @@
 <meta charset=utf-8>
 <title>Shoo Shoo's Shooting Star</title>
 <script src="https://cdn.rawgit.com/mrdoob/three.js/r76/build/three.min.js"></script>
-<script src="https://sdk.altvr.com/libs/altspace.js/0.20.8/altspace.min.js"></script>
+<script src="https://sdk.altvr.com/libs/altspace.js/1.0.0/altspace.min.js"></script>
 <script src="https://cdn.rawgit.com/Ooblik/AltspaceVR-Native-Components-JS/master/js/JSNativeComponents.js"></script>
 <script src="https://cdn.rawgit.com/norybiak/UltimateLoader/v0.3.0/dist/UltimateLoader.min.js"></script>
 </head>
@@ -80,14 +80,14 @@
 			var  models =
 			[
 				//{ name: 'shooblockout10', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'discoball.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'curtains3.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'bar2.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'barstools.glb', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'stage3.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'COLspiralstaircase3.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'spiralstaircase.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'downstairsfloor4.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+				{ name: 'discoball', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'curtains3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bar2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'barstools', type: '.glb', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'stage3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'COLspiralstaircase3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'spiralstaircase', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'downstairsfloor4', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 			];
 
 			//These two functions are used by my snow to spawn at random locations
@@ -157,20 +157,19 @@
 					//scene.add(obj);
 					
 					if (name === 'shooblockout10.obj') {
-						obj.children[1].userData.altspace = {collider: {enabled: false}};
+						//obj.children[1].userData.get()altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
 						obj.scale.y = 1.1;
 						house = obj;
-						
 						scene.add(obj);
 						//console.log(obj);
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'curtains3.obj') {
-						obj.children[1].userData.altspace = {collider: {enabled: false}};
+					if (name === 'curtains3') {
+						//obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -182,8 +181,8 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'bar2.obj') {
-						obj.children[1].userData.altspace = {collider: {enabled: false}};
+					if (name === 'bar2') {
+						//obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -195,8 +194,8 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'barstools.glb') {
-						obj.children[1].userData.altspace = {collider: {enabled: false}};
+					if (name === 'barstools') {
+						//obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -208,8 +207,8 @@
 						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'stage3.obj') {
-						obj.children[1].userData.altspace = {collider: {enabled: false}};
+					if (name === 'stage3') {
+						//obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -221,8 +220,8 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'COLspiralstaircase3.obj') {
-						obj.children[1].userData.altspace = {collider: {enabled: false}};
+					if (name === 'COLspiralstaircase3') {
+						//obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -235,8 +234,8 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'spiralstaircase.obj') {
-						obj.children[1].userData.altspace = {collider: {enabled: false}};
+					if (name === 'spiralstaircase') {
+						//obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -248,8 +247,8 @@
 						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'downstairsfloor4.obj') {
-						obj.children[1].userData.altspace = {collider: {enabled: false}};
+					if (name === 'downstairsfloor4') {
+						//obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -261,8 +260,8 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'discoball.obj') {
-						obj.children[1].userData.altspace = {collider: {enabled: false}};
+					if (name === 'discoball') {
+						//obj.children[1].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(-20, 2, 0);
 						discoball = obj;
 						scene.add(obj);
@@ -302,7 +301,7 @@
 					var objectUrls = new Array(models.length);
 					for (var i = 0; i < models.length; i++)
 					{
-						objectUrls[i] = modelBaseUrl + models[i].name;
+						objectUrls[i] = modelBaseUrl + models[i].name + models[i].type;
 					}
 
 					// Use Kai's awesome UltimateLoader to load models
