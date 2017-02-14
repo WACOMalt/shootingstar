@@ -157,7 +157,7 @@
 					//scene.add(obj);
 					
 					if (name === 'shooblockout10.obj') {
-						//obj.children[1].userData.get()altspace = {collider: {enabled: false}};
+						obj.children[0].userData.get()altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -169,7 +169,7 @@
 					}
 					
 					if (name === 'curtains3') {
-						//obj.children[1].userData.altspace = {collider: {enabled: false}};
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -182,7 +182,7 @@
 					}
 					
 					if (name === 'bar2') {
-						//obj.children[1].userData.altspace = {collider: {enabled: false}};
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -195,7 +195,7 @@
 					}
 					
 					if (name === 'barstools') {
-						//obj.children[1].userData.altspace = {collider: {enabled: false}};
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -208,7 +208,7 @@
 					}
 					
 					if (name === 'stage3') {
-						//obj.children[1].userData.altspace = {collider: {enabled: false}};
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -221,7 +221,7 @@
 					}
 					
 					if (name === 'COLspiralstaircase3') {
-						//obj.children[1].userData.altspace = {collider: {enabled: false}};
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -235,7 +235,7 @@
 					}
 					
 					if (name === 'spiralstaircase') {
-						//obj.children[1].userData.altspace = {collider: {enabled: false}};
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -248,7 +248,7 @@
 					}
 					
 					if (name === 'downstairsfloor4') {
-						//obj.children[1].userData.altspace = {collider: {enabled: false}};
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
@@ -261,15 +261,15 @@
 					}
 					
 					if (name === 'discoball') {
-						//obj.children[1].userData.altspace = {collider: {enabled: false}};
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(-20, 2, 0);
 						discoball = obj;
 						scene.add(obj);
-						//console.log(obj);
-						console.log(discoball);
+						console.log(obj);
+						//console.log(discoball);
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 						
-						discoballMat = discoball.children[1].material;
+						discoballMat = discoball.children[0].material;
 						discoballMat.map.wrapT = THREE.RepeatWrapping;
 						discoballMat.map.wrapS = THREE.RepeatWrapping;
 					}
