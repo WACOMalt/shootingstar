@@ -45,6 +45,8 @@
 			var frontdoor;
 			var frontwindows;
 			var wallsconces;
+			var upstairsfloor;
+			var upstairsfoyer;
 			var discoball;
 			var discoballMat;
 			var shinyin;
@@ -97,7 +99,9 @@
 				{ name: 'downstairswalls', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'frontdoor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'frontwindows', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'wallsconces', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+				{ name: 'wallsconces', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsfloor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsfoyer', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 			];
 
 			//These two functions are used by my snow to spawn at random locations
@@ -304,6 +308,28 @@
 						obj.position.set(10, 1, 0);
 						obj.scale.y = 1.1;
 						wallsconces = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'upstairsfloor') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(10, 1, 0);
+						obj.scale.y = 1.1;
+						upstairsfloor = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'upstairsfoyer') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(10, 1, 0);
+						obj.scale.y = 1.1;
+						upstairsfoyer = obj;
 						
 						scene.add(obj);
 						//console.log(obj);
