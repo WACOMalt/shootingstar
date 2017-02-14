@@ -1,6 +1,6 @@
 # This file uses feet as units for non-parametric coordinates.
 
-mtllib upstrairsfloor.mtl
+mtllib upstairsfloor.mtl
 g default
 v 0.079288 3.101024 2.880780
 v 0.079288 3.566178 2.880780
