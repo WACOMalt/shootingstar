@@ -83,7 +83,7 @@
 				{ name: 'discoball', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'curtains3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'bar2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'barstools', type: '.glb', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'barstools3', type: '.glb', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'stage3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'COLspiralstaircase3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'spiralstaircase', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
@@ -194,8 +194,9 @@
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
-					if (name === 'barstools') {
+					if (name === 'barstools3') {
 						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.children[0].material = new THREE.MeshBasicMaterial({ color: 0xffffff, map: new THREE.TextureLoader().load("assets/barstools3.jpg")});
 						obj.position.set(10, 1, 0);
 						//obj.scale.x = 1.5;
 						//obj.scale.z = 1.5;
