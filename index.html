@@ -52,6 +52,7 @@
 			var world5_1;
 			var world5_2;
 			var world5_3;
+			var tree;
 			var discoball;
 			var discoballMat;
 			var shinyin;
@@ -109,7 +110,8 @@
 				//{ name: 'upstairsfoyer', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				//{ name: 'world5_1', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'world5_2', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'world5_3', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+				{ name: 'world5_3', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'tree', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 			];
 
 			//These two functions are used by my snow to spawn at random locations
@@ -360,7 +362,19 @@
 						obj.position.set(0, 0, 0);
 						//obj.scale.y = 1.1;
 						obj.scale.setScalar(100);
-						world5_2 = obj.children[0].children[0];
+						world5_2 = obj;
+						
+						//scene.add(obj);
+						console.log(obj);
+						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'tree') {
+						//obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(0, 0, 0);
+						//obj.scale.y = 1.1;
+						obj.scale.setScalar(100);
+						tree = obj;
 						
 						//scene.add(obj);
 						console.log(obj);
