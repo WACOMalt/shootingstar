@@ -1,0 +1,262 @@
+{
+    "accessors": {
+        "accessor_buffer_Untitled.002_0": {
+            "bufferView": "bufferView_buffer_Untitled.002_0",
+            "byteOffset": 0,
+            "byteStride": 44,
+            "componentType": 5126,
+            "count": 51076,
+            "max": [
+                2.0,
+                20.0,
+                56.0
+            ],
+            "min": [
+                -35.0,
+                0.0,
+                0.625
+            ],
+            "type": "VEC3"
+        },
+        "accessor_buffer_Untitled.002_1": {
+            "bufferView": "bufferView_buffer_Untitled.002_0",
+            "byteOffset": 12,
+            "byteStride": 44,
+            "componentType": 5126,
+            "count": 51076,
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "type": "VEC3"
+        },
+        "accessor_buffer_Untitled.002_2": {
+            "bufferView": "bufferView_buffer_Untitled.002_0",
+            "byteOffset": 24,
+            "byteStride": 44,
+            "componentType": 5126,
+            "count": 51076,
+            "max": [
+                0.9824219942092896,
+                0.5605469942092896
+            ],
+            "min": [
+                0.0019531298894435167,
+                0.0019530057907104492
+            ],
+            "type": "VEC2"
+        },
+        "accessor_buffer_Untitled.002_3": {
+            "bufferView": "bufferView_buffer_Untitled.002_0",
+            "byteOffset": 32,
+            "byteStride": 44,
+            "componentType": 5126,
+            "count": 51076,
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "type": "VEC3"
+        },
+        "accessor_buffer_Untitled.002_4": {
+            "bufferView": "bufferView_buffer_Untitled.002_1",
+            "byteOffset": 0,
+            "byteStride": 2,
+            "componentType": 5123,
+            "count": 77700,
+            "max": [
+                51075
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        }
+    },
+    "asset": {
+        "profile": {
+            "api": "WebGL",
+            "version": "1.0.3"
+        },
+        "version": "1.0"
+    },
+    "bufferViews": {
+        "bufferView_buffer_Untitled.002_0": {
+            "buffer": "buffer_combined",
+            "byteLength": 2247344,
+            "byteOffset": 0,
+            "target": 34962
+        },
+        "bufferView_buffer_Untitled.002_1": {
+            "buffer": "buffer_combined",
+            "byteLength": 155400,
+            "byteOffset": 2247344,
+            "target": 34963
+        }
+    },
+    "buffers": {
+        "buffer_combined": {
+            "byteLength": 2402744,
+            "type": "arraybuffer",
+            "uri": "world5_2.bin"
+        }
+    },
+    "extensions": {
+        "KHR_materials_common": {
+            "lights": {}
+        }
+    },
+    "extensionsUsed": [
+        "KHR_materials_common"
+    ],
+    "images": {
+        "image_world-RGBA.png": {
+            "uri": "world-RGBA.png"
+        }
+    },
+    "materials": {
+        "material_lambert3": {
+            "extensions": {
+                "KHR_materials_common": {
+                    "technique": "PHONG",
+                    "values": {
+                        "ambient": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "diffuse": "texture_Texture",
+                        "doubleSided": false,
+                        "emission": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "shininess": 49,
+                        "specular": [
+                            0.5,
+                            0.5,
+                            0.5,
+                            1.0
+                        ],
+                        "transparency": 1.0,
+                        "transparent": false
+                    }
+                }
+            },
+            "name": "lambert3"
+        }
+    },
+    "meshes": {
+        "mesh_Untitled.002": {
+            "name": "Untitled.002",
+            "primitives": [
+                {
+                    "attributes": {
+                        "COLOR_0": "accessor_buffer_Untitled.002_3",
+                        "NORMAL": "accessor_buffer_Untitled.002_1",
+                        "POSITION": "accessor_buffer_Untitled.002_0",
+                        "TEXCOORD_0": "accessor_buffer_Untitled.002_2"
+                    },
+                    "indices": "accessor_buffer_Untitled.002_4",
+                    "material": "material_lambert3",
+                    "mode": 4
+                }
+            ]
+        }
+    },
+    "nodes": {
+        "node_WorldGood.002": {
+            "children": [],
+            "matrix": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -1.6292068494294654e-07,
+                1.0,
+                0.0,
+                0.0,
+                -1.0,
+                -1.6292068494294654e-07,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "meshes": [
+                "mesh_Untitled.002"
+            ],
+            "name": "WorldGood.002"
+        },
+        "node_scene_Scene_root": {
+            "children": [
+                "node_WorldGood.002"
+            ],
+            "matrix": [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "name": "node_scene_Scene_root"
+        }
+    },
+    "samplers": {
+        "sampler_default": {}
+    },
+    "scene": "scene_Scene",
+    "scenes": {
+        "scene_Scene": {
+            "extras": {
+                "active_camera": "camera_Camera",
+                "background_color": [
+                    0.05087608844041824,
+                    0.05087608844041824,
+                    0.05087608844041824
+                ],
+                "frames_per_second": 24
+            },
+            "name": "Scene",
+            "nodes": [
+                "node_scene_Scene_root"
+            ]
+        }
+    },
+    "textures": {
+        "texture_Texture": {
+            "format": 6408,
+            "internalFormat": 6408,
+            "sampler": "sampler_default",
+            "source": "image_world-RGBA.png"
+        }
+    }
+}
