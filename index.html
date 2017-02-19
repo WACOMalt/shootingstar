@@ -49,10 +49,6 @@
 			var wallsconces;
 			var upstairsfloor;
 			var upstairsfoyer;
-			var world5_1;
-			var world5_2;
-			var world5_3;
-			var tree;
 			var discoball;
 			var discoballMat;
 			var shinyin;
@@ -94,24 +90,21 @@
 			[
 				//{ name: 'shooblockout10', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'discoball', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'curtains4', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'bar3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'curtains4', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bar3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'barstools4', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'stage4', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'COLspiralstaircase3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'spiralstaircase2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'downstairsfloor5', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'baywindows', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'downstairswalls', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'frontdoor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'frontwindows', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'wallsconces', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'upstairsfloor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'upstairsfoyer', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'world5_1', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'world5_2', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'world5_3', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'tree', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+				{ name: 'stage4', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'COLspiralstaircase3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'spiralstaircase2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'downstairsfloor5', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'baywindows', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'downstairswalls', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'frontdoor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'frontwindows', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'wallsconces', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsfloor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsfoyer', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+
 			];
 
 			//These two functions are used by my snow to spawn at random locations
@@ -197,7 +190,7 @@
 						obj.scale.y = 1.1;
 						curtains = obj;
 						
-						scene.add(obj);
+						//scene.add(obj);
 						//console.log(obj);
 						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
@@ -219,7 +212,7 @@
 						obj.scale.y = 1.1;
 						barstools = obj;
 						
-						//scene.add(obj);
+						scene.add(obj);
 						console.log(obj);
 						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
@@ -344,52 +337,6 @@
 						scene.add(obj);
 						//console.log(obj);
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
-					}
-					
-					if (name === 'world5_1') {
-						//obj.children[0].userData.altspace = {collider: {enabled: false}};
-						obj.position.set(0, 0, 0);
-						obj.scale.setScalar(100);
-						world5_1 = obj;
-						
-						//scene.add(obj);
-						console.log(obj);
-						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
-					}
-					
-					if (name === 'world5_2') {
-						//obj.children[0].userData.altspace = {collider: {enabled: false}};
-						obj.position.set(0, 0, 0);
-						//obj.scale.y = 1.1;
-						obj.scale.setScalar(100);
-						world5_2 = obj;
-						
-						//scene.add(obj);
-						console.log(obj);
-						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
-					}
-					
-					if (name === 'tree') {
-						//obj.children[0].userData.altspace = {collider: {enabled: false}};
-						obj.position.set(0, 0, 0);
-						//obj.scale.y = 1.1;
-						obj.scale.setScalar(1);
-						tree = obj;
-						
-						//scene.add(obj);
-						console.log(obj);
-						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
-					}
-					
-					if (name === 'world5_3') {
-						//obj.children[0].userData.altspace = {collider: {enabled: false}};
-						obj.position.set(0, 0, 0);
-						//obj.scale.y = 1.1;
-						world5_3 = obj.children[0];
-						
-						//scene.add(obj);
-						console.log(obj);
-						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
 					if (name === 'discoball') {
