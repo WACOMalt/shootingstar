@@ -19,10 +19,12 @@
 		///////Maya scale factor: 0.009249057236425
 		*/
 		
+		var scene;
+		
 		var ShooShoosShootingStar = (function() {
 			console.log("starting NightmareTime Space app");
 			//Scene and renderer are the main stuff you need for altspace to have stuff to render, and to render it to the game
-			var scene = new THREE.Scene();
+			scene = new THREE.Scene();
 			var renderer = altspace.getThreeJSRenderer();
 
 			//we use this to be able to easily scale our whole scene
