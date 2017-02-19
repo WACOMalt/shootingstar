@@ -357,7 +357,7 @@
 						//obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(0, 0, 0);
 						//obj.scale.y = 1.1;
-						world5_2 = obj.children[0];
+						world5_2 = obj.children[0].children[0];
 						
 						scene.add(obj);
 						console.log(obj);
@@ -434,7 +434,7 @@
 					//var skybox = createSkybox('https://upload.wikimedia.org/wikipedia/commons/a/a1/ESO_-_The_Milky_Way_panorama_(by).jpg', true);
 					var skybox = createSkybox('assets/Sky_EchoAdventureA.jpg', true);
 					
-					scene.add(skybox);
+					//scene.add(skybox);
 
 					//Now that everything has been done, Run animation loop.
 				(function animateYet(){
