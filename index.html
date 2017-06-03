@@ -49,6 +49,24 @@
 			var wallsconces;
 			var upstairsfloor;
 			var upstairsfoyer;
+		//new bedroom stuff
+			var bed;
+			var bedroomwalls;
+			var bench;
+			var drapes;
+			var dressingmirror;
+			var dressingtable;
+			var nighttable1;
+			var nighttable2;
+			var nighttablelamp1;
+			var nighttablelamp2;
+			var stool;
+			var upstairsbaywindow;
+			var upstairsceiling;
+			var upstairsfloor2;
+			var window1;
+			var window2;
+		//end new bedroom stuff	
 			var discoball;
 			var discoballMat;
 			var shinyin;
@@ -104,7 +122,22 @@
 				{ name: 'wallsconces', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'upstairsfloor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'upstairsfoyer', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-
+				{ name: 'bed', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bedroomwalls', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bench', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'drapes', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'dressingmirror', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'dressingtable', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttable1', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttable2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttablelamp1', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttablelamp2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'stool', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsbaywindow', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsceiling', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsfloor2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'window1', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'window2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 			];
 
 			//These two functions are used by my snow to spawn at random locations
@@ -116,7 +149,7 @@
 				return (Math.random() * (max - min)) + min;
 			}
 
-			//Kai made this function for the skybox (It's still overkill but at least it isnt interactive)
+			//Kai made this function for the skybox
 			function createSkybox(url, update, _opacity) {
 				var _opacity = _opacity || false;
 				var sphereGeo = new THREE.SphereGeometry(400, 20, 20, Math.PI + 0.3, -2*Math.PI);
@@ -338,7 +371,168 @@
 						//console.log(obj);
 						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
-					
+					//START NEW BEDROOM STUFF
+					if (name === 'bed') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						bed = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'bedroomwalls') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						bedroomwalls = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'bench') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						bench = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'drapes') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						drapes = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'dressingmirror') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						dressingmirror = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'dressingtable') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						dressingtable = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'nighttable1') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						nighttable1 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'nighttable2') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						nighttable2 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'nighttablelamp1') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						nighttablelamp1 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'nighttablelamp2') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						nighttablelamp2 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'stool') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						stool = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'upstairsbaywindow') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						upstairsbaywindow = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'upstairsceiling') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						upstairsceiling = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'upstairsfloor2') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						upstairsfloor2 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'window1') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						window1 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'window2') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						window2 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					//END NEW BEDROOM STUFF
 					if (name === 'discoball') {
 						obj.children[0].userData.altspace = {collider: {enabled: false}};
 						obj.position.set(-20, 2, 0);
