@@ -1,6 +1,6 @@
 # This file uses feet as units for non-parametric coordinates.
 
-mtllib nightTable2.mtl
+mtllib nighttable2.mtl
 g default
 v -2.186793 3.635590 3.670588
 v -2.205515 3.629370 3.671373
