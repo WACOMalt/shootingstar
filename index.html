@@ -66,6 +66,8 @@
 			var upstairsfloor2;
 			var window1;
 			var window2;
+			var cake;
+			var caketext;
 		//end new bedroom stuff	
 			var discoball;
 			var discoballMat;
@@ -137,7 +139,9 @@
 				{ name: 'upstairsceiling', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'upstairsfloor2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'window1', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'window2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+				{ name: 'window2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'cake', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'caketext', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 			];
 
 			//These two functions are used by my snow to spawn at random locations
@@ -527,6 +531,25 @@
 						obj.position.set(5, 1, 0);
 						obj.scale.y = 1.1;
 						window2 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}					if (name === 'cake') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						cake = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'caketext') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						caketext = obj;
 						
 						scene.add(obj);
 						//console.log(obj);
