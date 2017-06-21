@@ -6,7 +6,8 @@
 <script src="https://cdn.rawgit.com/mrdoob/three.js/r84/build/three.min.js"></script>
 <script src="https://sdk.altvr.com/libs/altspace.js/2.4.0/altspace.min.js"></script>
 <script src="https://cdn.rawgit.com/Ooblik/AltVRNC/master/dist/AltVRNC.min.js"></script>
-<script src="https://cdn.rawgit.com/norybiak/UltimateLoader/master/dist/UltimateLoader.js"></script>
+<!--<script src="https://cdn.rawgit.com/norybiak/UltimateLoader/master/dist/UltimateLoader.js"></script>-->
+<script src="js/UltimateLoader.min.js"></script>
 </head>
 <body>
 
@@ -108,40 +109,40 @@
 			//3D Models to load.
 			var  models =
 			[
-				//{ name: 'shooblockout10', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'discoball', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'curtains4', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'bar3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				//{ name: 'shooblockout10', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'discoball', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'curtains4', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bar3', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 				{ name: 'barstools4', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'stage4', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'COLspiralstaircase3', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'spiralstaircase2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'downstairsfloor5', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'baywindows', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'downstairswalls', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'frontdoor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'frontwindows', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'wallsconces', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'upstairsfloor', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'upstairsfoyer', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'bed', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'bedroomwalls', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'bench', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'drapes', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'dressingmirror', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'dressingtable', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'nighttable1', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'nighttable2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'nighttablelamp1', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'nighttablelamp2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'stool', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'upstairsbaywindow', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'upstairsceiling', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'upstairsfloor2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'window1', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				{ name: 'window2', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
-				//{ name: 'cake', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-				//{ name: 'caketext', type: '.obj', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+				{ name: 'stage4', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'COLspiralstaircase3', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'spiralstaircase2', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'downstairsfloor5', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'baywindows', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'downstairswalls', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'frontdoor', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'frontwindows', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'wallsconces', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsfloor', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsfoyer', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bed', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bedroomwalls', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bench', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'drapes', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'dressingmirror', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'dressingtable', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttable1', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttable2', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttablelamp1', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttablelamp2', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'stool', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsbaywindow', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsceiling', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsfloor2', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'window1', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'window2', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+				//{ name: 'cake', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				//{ name: 'caketext', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 			];
 
 			//These two functions are used by my snow to spawn at random locations
@@ -157,8 +158,22 @@
 			function createSkybox(url, update, _opacity) {
 				var _opacity = _opacity || false;
 				var sphereGeo = new THREE.SphereGeometry(400, 20, 20, Math.PI + 0.3, -2*Math.PI);
-				var texture = THREE.ImageUtils.loadTexture( url );
 
+				function getAbsoluteURL(url) {
+					if(url && !url.startsWith('http')) {
+						if(url.startsWith('/')) {
+							url = location.origin + url;
+						} else {
+							var currPath = location.pathname;
+							if(!currPath.endsWith('/')) currPath = location.pathname.split('/').slice(0, -1).join('/') + '/';
+							url = location.origin + currPath + url;
+						}
+					}
+
+					return url;
+				}
+
+				var texture = new THREE.Texture({ src: getAbsoluteURL(url) });
 				texture.needsUpdate = update;
 				texture.minFilter = THREE.LinearFilter;
 				texture.magFilter = THREE.LinearFilter;
