@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
     <head>
         <title>Demo</title>
@@ -16,5 +17,681 @@
 	
 	<a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl"></a-entity>
     </a-scene>
+=======
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Shoo Shoo's Shooting Star</title>
+<script src="https://cdn.rawgit.com/mrdoob/three.js/r84/build/three.min.js"></script>
+<script src="https://sdk.altvr.com/libs/altspace.js/2.4.0/altspace.min.js"></script>
+<script src="https://cdn.rawgit.com/Ooblik/AltVRNC/master/dist/AltVRNC.min.js"></script>
+<!--<script src="https://cdn.rawgit.com/norybiak/UltimateLoader/master/dist/UltimateLoader.js"></script>-->
+<script src="js/UltimateLoader.min.js"></script>
+</head>
+<body>
+
+	<script>
+		if (!window.altspace || !window.altspace.inClient) document.write('<h3>Bruh, This is an AltspaceVR app. Why you trying to open it in a browser? Get altspace here: <a href="http://altvr.com"> AltspaceVR </a></h3>');
+		
+		/*/////SHOO SHOO'S SHOOTING STAR - Environment by Ben Sumner - wacomalt@gmail.com
+		///////Modeling done in Maya
+		///////Lighting/Rendering done in Redshift
+		///////Maya scale factor: 0.009249057236425
+		*/
+		
+		var scene;
+		
+		var ShooShoosShootingStar = (function() {
+			console.log("starting NightmareTime Space app");
+			//Scene and renderer are the main stuff you need for altspace to have stuff to render, and to render it to the game
+			scene = new THREE.Scene();
+			var renderer = altspace.getThreeJSRenderer();
+
+			//we use this to be able to easily scale our whole scene
+			//var masterScale = 1;
+
+			//Set a base folder for models
+			var modelBaseUrl = 'assets/';
+			
+			var house;
+			var curtains;
+			var bar;
+			var barstools;
+			var stage;
+			var COLspiralstaircase;
+			var spiralstaircase;
+			var audiencefloor;
+			var downstairsfloor;
+			var baywindows;
+			var downstairswalls;
+			var frontdoor;
+			var frontwindows;
+			var wallsconces;
+			var upstairsfloor;
+			var upstairsfoyer;
+		//new bedroom stuff
+			var bed;
+			var bedroomwalls;
+			var bench;
+			var drapes;
+			var dressingmirror;
+			var dressingtable;
+			var nighttable1;
+			var nighttable2;
+			var nighttablelamp1;
+			var nighttablelamp2;
+			var stool;
+			var upstairsbaywindow;
+			var upstairsceiling;
+			var upstairsfloor2;
+			var window1;
+			var window2;
+			//var cake;
+			//var caketext;
+		//end new bedroom stuff	
+			var discoball;
+			var discoballMat;
+			var shinyin;
+			var shinyout;
+			var shinyoutMat;
+			var meshCollider;
+			var shinyGroup = new THREE.Group();
+
+			//Create a variable for the user's head joint. It'll be filled later by "promises" and used for the snow system
+			var userHead;
+
+			//animationInc is just a variable that goes up by one every tick. I use this to position the snow flakes
+			var animationInc = 0;
+
+			//Snowflakes disabled, BUT
+			/*var snowflakesEnabled = false;
+
+			//If there is NOT a "?noSnow" in the URL, then reenable snow (So really this all enables them by default unless you add that string)
+			if( ! /[&?]noSnow/.test(window.location.search) ){
+				snowflakesEnabled = true;
+			}
+
+			//A bunch more snowflake control variables
+			var numSnowflakes = 500; //the number of snowflakes
+			var snowflakeSize = 0.05; //size of the flakes
+			var snowflakes = []; //empty array that will hold all of the flake object references
+			var snowDriftDistanceX = 0.001; //distance they sway in X as they fall
+			var snowDriftDistanceZ = 0.001; //same for Z
+			var snowDriftSpeed = 0.0001; //how quickly they go from left to right
+			var snowDriftSeparation = 10; //This is kinda a time offset for each of the flake's animations from the last one made.
+			var snowGravity = -0.012; //How fast they fall
+			var snowflakeSpinSpeed = 0.05;
+			var flakeBoxWidth = 3; // These three set the box in which the snow is spawned
+			var flakeBoxHeight = 3;
+			var flakeBoxDepth = 3; */
+
+			//3D Models to load.
+			var  models =
+			[
+				//{ name: 'shooblockout10', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'discoball', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'curtains4', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bar3', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'barstools4', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'stage4', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'COLspiralstaircase3', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'spiralstaircase2', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'downstairsfloor5', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'baywindows', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'downstairswalls', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'frontdoor', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'frontwindows', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'wallsconces', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsfloor', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsfoyer', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bed', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bedroomwalls', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'bench', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'drapes', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'dressingmirror', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'dressingtable', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttable1', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttable2', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttablelamp1', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'nighttablelamp2', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'stool', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsbaywindow', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsceiling', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'upstairsfloor2', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'window1', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'window2', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+				//{ name: 'cake', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				//{ name: 'caketext', type: '.bom', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
+			];
+
+			//These two functions are used by my snow to spawn at random locations
+			function RandInt(min, max) {
+				return Math.floor(Math.random() * (max - min)) + min;
+			}
+
+			function RandFloat(min, max) {
+				return (Math.random() * (max - min)) + min;
+			}
+
+			//Kai made this function for the skybox
+			function createSkybox(url, update, _opacity) {
+				var _opacity = _opacity || false;
+				var sphereGeo = new THREE.SphereGeometry(400, 20, 20, Math.PI + 0.3, -2*Math.PI);
+
+				function getAbsoluteURL(url) {
+					if(url && !url.startsWith('http')) {
+						if(url.startsWith('/')) {
+							url = location.origin + url;
+						} else {
+							var currPath = location.pathname;
+							if(!currPath.endsWith('/')) currPath = location.pathname.split('/').slice(0, -1).join('/') + '/';
+							url = location.origin + currPath + url;
+						}
+					}
+
+					return url;
+				}
+
+				var texture = new THREE.Texture({ src: getAbsoluteURL(url) });
+				texture.needsUpdate = update;
+				texture.minFilter = THREE.LinearFilter;
+				texture.magFilter = THREE.LinearFilter;
+				texture.format = THREE.RGBFormat;
+
+				var config;
+				if (_opacity)
+				{
+					config = { color: 0xffffff, map: texture, opacity: _opacity, transparent : true, side: THREE.DoubleSide };
+				}
+				else
+				{
+					config = { color: 0xffffff, map: texture, side: THREE.DoubleSide };
+				}
+
+				var sphereMaterial = new THREE.MeshBasicMaterial( config );
+
+				return new THREE.Mesh(sphereGeo, sphereMaterial);
+			}
+
+			//My code for initially making the snowflakes (this gets run later)
+			/*
+			function createSnowFlake() {
+				var tex = new THREE.ImageUtils.loadTexture("models/snowflakes.png");
+				tex.offset = new THREE.Vector2( (RandInt(0, 3)/4), (RandInt(0, 3)/4));
+				tex.repeat = new THREE.Vector2( .25, .25);
+				var snowflake = new THREE.Mesh(new THREE.PlaneGeometry(snowflakeSize, snowflakeSize, 1, 1), new THREE.MeshBasicMaterial({ map: tex, transparent: true, side: THREE.DoubleSide}));
+				scene.add(snowflake);
+				snowflake.userData.altspace = {collider: {enabled: false}};
+				snowflake.position.set(((userHead.position.x) + RandFloat((flakeBoxWidth*-1), flakeBoxWidth)), ((userHead.position.y-scene.position.y) + RandFloat((flakeBoxHeight*-1), flakeBoxHeight)), ((userHead.position.z-scene.position.z) + RandFloat((flakeBoxDepth*-1), flakeBoxDepth)));
+				(userHead.position.y-scene.position.y)
+				snowflake.lookAt(userHead.position.y-scene.position.y)
+				return snowflake;
+			} */
+
+			//Once the whole script has been read by altspace, do the model loader stuff
+			function onLoaded() {
+				for (var i = 0; i < models.length; i++)
+				{
+                    var obj = models[i].object;
+                    var name = models[i].name;
+                    var spawnPosition = new THREE.Vector3();
+
+                    spawnPosition.copy(models[i].position);
+                    //spawnPosition.multiplyScalar(masterScale);
+                    obj.position.copy(spawnPosition);//initial position
+                    //obj.scale.set(masterScale, masterScale, masterScale);
+
+					//add the meshes to the scene
+					scene.add(obj);
+					
+					if (name === 'shooblockout10.obj') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						house = obj;
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'curtains4') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.children[0].material.side = THREE.DoubleSide;
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						curtains = obj;
+						
+						//scene.add(obj);
+						//console.log(obj);
+						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'bar3') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						bar = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'barstools4') {
+						//obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						barstools = obj;
+						
+						scene.add(obj);
+						console.log(obj);
+						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'stage4') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						stage = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'COLspiralstaircase3') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						COLspiralstaircase = obj;
+						COLspiralstaircase.children[0].material.visible = false;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'spiralstaircase2') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						spiralstaircase = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						//meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'downstairsfloor5') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						downstairsfloor = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'baywindows') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						baywindows = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'downstairswalls') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						downstairswalls = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'frontdoor') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						frontdoor = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'frontwindows') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						frontwindows = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'wallsconces') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						wallsconces = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'upstairsfloor') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						upstairsfloor = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'upstairsfoyer') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						upstairsfoyer = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					//START NEW BEDROOM STUFF
+					if (name === 'bed') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						bed = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'bedroomwalls') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						bedroomwalls = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'bench') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						bench = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'drapes') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						drapes = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'dressingmirror') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						dressingmirror = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'dressingtable') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						dressingtable = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'nighttable1') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						nighttable1 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'nighttable2') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						nighttable2 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'nighttablelamp1') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						nighttablelamp1 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'nighttablelamp2') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						nighttablelamp2 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'stool') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						stool = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'upstairsbaywindow') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						upstairsbaywindow = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'upstairsceiling') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						upstairsceiling = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'upstairsfloor2') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						upstairsfloor2 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'window1') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						window1 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'window2') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						window2 = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}					if (name === 'cake') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						cake = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					if (name === 'caketext') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(5, 1, 0);
+						obj.scale.y = 1.1;
+						caketext = obj;
+						
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					//END NEW BEDROOM STUFF
+					if (name === 'discoball') {
+						obj.children[0].userData.altspace = {collider: {enabled: false}};
+						obj.position.set(-20, 2, 0);
+						discoball = obj;
+						scene.add(obj);
+						//console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+						
+						discoballMat = discoball.children[0].material;
+						discoballMat.map.wrapT = THREE.RepeatWrapping;
+						discoballMat.map.wrapS = THREE.RepeatWrapping;
+					}
+					
+                }
+            }
+
+			function start() {
+
+				//Promises are confusing, but its how we pull some info from altspace itself like the skeleton and enclosure info
+				var promises =
+					[
+						altspace.getEnclosure(),
+						altspace.getThreeJSTrackingSkeleton(),
+
+					];
+
+				//Stuff to run AFTER promises have been loaded (AKA most of the app goes here)
+				Promise.all(promises).then(function (array)
+				{
+					//Store enclosure and skeleton promises to variables
+					enclosure = array.shift();
+					var skeleton = array.shift();
+
+					//Add skeleton to scene and store Head joint in variable
+					scene.add(skeleton);
+					userHead = skeleton.getJoint('Head');
+
+					// Build ultimateloader array
+					var objectUrls = new Array(models.length);
+					for (var i = 0; i < models.length; i++)
+					{
+						objectUrls[i] = modelBaseUrl + models[i].name + models[i].type;
+					}
+
+					// Use Kai's awesome UltimateLoader to load models
+					UltimateLoader.multiload(objectUrls, function(objects)
+					{
+						for (var i = 0; i < objects.length; i++)
+						{
+							models[i].object = objects[i];
+						}
+
+						onLoaded();
+					});
+
+					// Create Milkyway Skybox and add it to the scene.
+					//var skybox = createSkybox('https://upload.wikimedia.org/wikipedia/commons/a/a1/ESO_-_The_Milky_Way_panorama_(by).jpg', true);
+					var skybox = createSkybox('assets/Sky_EchoAdventureA.jpg', true);
+					
+					//scene.add(skybox);
+
+					//Now that everything has been done, Run animation loop.
+				(function animateYet(){
+					if(discoball){	//make sure these exist before animating
+						animate();						//to prevent console errors
+						return;
+					};
+					requestAnimationFrame(animateYet);
+				}());
+
+				}).catch(function (err)
+				{
+						console.log('Stuff is Broke', err);
+						//General useless error message if all else fails.
+					});
+				}
+
+			function animate() {
+
+				//Increment my time counter variable
+				animationInc++;
+				
+				//This tells JS to rerun this loop once one animation frame has happened. This is responsible for keeping a consistent timing to the animation regardless of framerate
+				requestAnimationFrame(animate);
+				discoball.rotation.y += 0.01;
+				discoballMat.map.offset.x = (THREE.Math.radToDeg(discoball.rotation.y)/360);
+				
+				//render the scene
+				renderer.render(scene);
+			
+
+			}return { start: start };  //return this WHOLE thing to "start" which we will call once the enclosure opens or something
+		}()); //End of actual app!
+
+		//Whenever altspace loads the file, request fullspace, then run your actual app
+		altspace.getEnclosure().then(function (enclosure) {
+			enclosure.requestFullspace().then(function () {
+			    ShooShoosShootingStar.start();
+			});
+		})
+	</script>
+>>>>>>> origin/master
 </body>
 </html>
